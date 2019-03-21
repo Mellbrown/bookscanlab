@@ -1,0 +1,62 @@
+html, body, #app {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+
+.in-block { display: inline-block }
+.inline { display: inline; }
+.block { display: block; }
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+.grow {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+.h-left { flex-direction: row; }
+.h-right { flex-direction: row-reverse; }
+.v-stack { flex-direction: column-reverse; }
+.point { cursor: pointer; }
+.h-resize { cursor: e-resize;}
+.v-resize { cursor: n-resize;}
+
+.relative { position: relative; }
+.absolute { position: absolute;}
+.midcen {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+.midcen-30 {
+  display: inline-block;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
+.baseline { align-items: baseline; }
+.botline { align-items: bottom; }
+.a-center { align-items: center; }
+
+.shadow { filter: drop-shadow(0px 10px 5px rgba(0,0,0,0.5)); }
+
+.frame {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.z-tab {
+  z-index: 10;
+}
+
+.y-scroll {
+  overflow-y: scroll;
+}
