@@ -37,9 +37,9 @@ export default {
   beforeDestroy () {
     window.removeEventListener('keypress', this.onwindowkeypress)
   },
-  methods:{
+  methods: {
     onwindowkeypress (e) {
-      switch(e.key) {
+      switch (e.key) {
         case 'r': this.syncListSource(); break
       }
     },
@@ -48,14 +48,14 @@ export default {
       this.setServer(servername)
     },
     drop (e) {
-      e.stopPropagation();
-    e.preventDefault();
-      var files = e.dataTransfer.files;
+      e.stopPropagation()
+      e.preventDefault()
+      var files = e.dataTransfer.files
       console.log(files)
     },
     ...mapMutations([
       'setServer'
-    ]), 
+    ]),
     ...mapActions([
       'syncListSource'
     ])
@@ -69,4 +69,3 @@ export default {
   components: { ImageCard }
 }
 </script>
-

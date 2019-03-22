@@ -55,14 +55,12 @@
 </template>
 
 <script>
-import _ from 'lodash'
-import paper3d from './Paper3D'
 
 export default {
   props: {
     src: { type: String, required: true },
     init: { type: Array, default: () => [] },
-    pointover: {type: Number, default: () => -1}
+    pointover: { type: Number, default: () => -1 }
   },
   data () {
     return {
@@ -85,9 +83,9 @@ export default {
       handledragging: null
     }
   },
-  mounted() {
+  mounted () {
     var m = this
-    this.$nextTick(()=>{
+    this.$nextTick(() => {
       let width = m.$refs.img.naturalWidth
       let height = m.$refs.img.naturalHeight
       m.toppadd = m.$refs.con.getBoundingClientRect().top
@@ -96,46 +94,45 @@ export default {
       m.naturalWidth = width
       m.naturalHeight = height
       m.viewBox = `0 0 ${width} ${height}`
-      window.addEventListener('keypress',this.onwindowkeypress)
+      window.addEventListener('keypress', this.onwindowkeypress)
       m.points = m.init
     })
   },
-  beforeDestroy() {
-    window.removeEventListener('keypress',this.onwindowkeypress)
+  beforeDestroy () {
+    window.removeEventListener('keypress', this.onwindowkeypress)
   },
   methods: {
-    mouse2imgScale(x, y){
+    mouse2imgScale (x, y) {
       x -= this.left
       y -= this.top + this.toppadd
-      return {x: x * this.scale, y: y * this.sercale}
+      return { x: x * this.scale, y: y * this.sercale }
     },
-    handledrag(e, i) {
+    handledrag (e, i) {
       if (this.selectedButton === 2) {
         this.handledragging = {
           target: i,
           ...this.mouse2imgScale(e.clientX, e.clientY)
         }
-        window.addEventListener('mousemove',this.handlemove)
-        window.addEventListener('mouseup',this.handleup)
-      }
-      else if (this.selectedButton === 1) {
-        this.points.splice(i, 0, {...this.points[i]})
-        this.points = this.points.filter(()=>true)
+        window.addEventListener('mousemove', this.handlemove)
+        window.addEventListener('mouseup', this.handleup)
+      } else if (this.selectedButton === 1) {
+        this.points.splice(i, 0, { ...this.points[i] })
+        this.points = this.points.filter(() => true)
         this.handledragging = {
           target: i,
           ...this.mouse2imgScale(e.clientX, e.clientY)
         }
-        window.addEventListener('mousemove',this.handlemove)
-        window.addEventListener('mouseup',this.handleup)
+        window.addEventListener('mousemove', this.handlemove)
+        window.addEventListener('mouseup', this.handleup)
       }
     },
-    handlemove(e){
+    handlemove (e) {
       this.handledragging = {
         ...this.handledragging,
         ...this.mouse2imgScale(e.clientX, e.clientY)
       }
     },
-    handleup(e){
+    handleup (e) {
       window.removeEventListener('mousemove', this.handlemove)
       window.removeEventListener('mouseup', this.handleup)
       this.points[this.handledragging.target] = {
@@ -143,14 +140,14 @@ export default {
         y: this.handledragging.y
       }
       this.handledragging = null
-      this.points = this.points.filter(()=>true)
+      this.points = this.points.filter(() => true)
       console.log('end')
     },
-    handleclick (e, i){
-      if(this.selectedButton === 3) {
+    handleclick (e, i) {
+      if (this.selectedButton === 3) {
         console.log(i + 'delete')
-        this.points = this.points.filter((p,idx) => {
-          if(idx !== i) return true;
+        this.points = this.points.filter((p, idx) => {
+          if (idx !== i) return true
         })
       }
     },
@@ -163,13 +160,13 @@ export default {
       mousey *= this.scale
       mousex = parseInt(mousex)
       mousey = parseInt(mousey)
-      function dist(x2, y2) {
+      function dist (x2, y2) {
         var x1 = mousex
         var y1 = mousey
-        return Math.pow(x2 - x1, 2) + Math.pow(y2-y1, 2)
+        return Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)
       }
       if (this.points.length !== 0) {
-        var closer = {target: 0, dist: dist(this.points[0].x, this.points[0].y)}
+        var closer = { target: 0, dist: dist(this.points[0].x, this.points[0].y) }
         for (var i = 1; this.points.length > i; i++) {
           var d = dist(this.points[0].x, this.points[0].y)
           if (closer.dist > d) {
@@ -179,23 +176,23 @@ export default {
             }
           }
         }
-        
-        var prevIdx = closer.target - 1 < 0 ? this.points.length-1 : closer.target - 1
+
+        var prevIdx = closer.target - 1 < 0 ? this.points.length - 1 : closer.target - 1
         var nextIdx = closer.target + 1 < this.points.length ? closer.target + 1 : 0
         var prevDist = dist(this.points[prevIdx].x, this.points[prevIdx].y)
         var nextDist = dist(this.points[nextIdx].x, this.points[nextIdx].y)
 
-        this.points.splice(prevDist < nextDist ? closer.target : closer.target + 1, 0, {x: mousex, y: mousey})
-        this.points = this.points.filter(()=>true)
+        this.points.splice(prevDist < nextDist ? closer.target : closer.target + 1, 0, { x: mousex, y: mousey })
+        this.points = this.points.filter(() => true)
       } else {
-        this.points = [{x: mousex, y: mousey}]
+        this.points = [{ x: mousex, y: mousey }]
       }
     },
     mousewheel (e) {
       this.width -= e.deltaY * 1.5
     },
     onwindowkeypress (e) {
-      switch(e.keyCode) {
+      switch (e.keyCode) {
         case 113: this.selectedButton = 0; break
         case 119: this.selectedButton = 1; break
         case 101: this.selectedButton = 2; break
@@ -255,15 +252,14 @@ export default {
     },
     txtPoints () {
       var dr = this.handledragging
-      return this.points.map((p, i)=>{
+      return this.points.map((p, i) => {
         if (dr !== null && dr.target === i) {
           return dr.x + ',' + dr.y
         }
         return p.x + ',' + p.y
       }).join(' ')
     }
-  },
-  components: { paper3d }
+  }
 }
 </script>
 

@@ -2,7 +2,7 @@
   <div id="app">
     <nav class="navbar navbar-expand-sm navbar-light bg-info">
       <router-link class="navbar-brand" to="/">
-        북스캐너 LAB 
+        북스캐너 LAB
         <icon icon="flask" class="ml-1"/>
       </router-link>
       <ul class="navbar-nav mr-auto">
@@ -36,7 +36,6 @@ export default {
   }
 }
 </script>
-
 
 <style lang="scss" scoped>
 .navbar-brand{

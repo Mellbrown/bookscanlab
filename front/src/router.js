@@ -5,7 +5,6 @@ import MakeFilter from '@/pages/MakeFilter'
 import ListSource from '@/pages/ListSource'
 import ModifyPoly from '@/pages/ModifyPoly'
 
-
 Vue.use(Router)
 
 export default new Router({

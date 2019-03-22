@@ -45,7 +45,7 @@ export default {
   methods: {
     pointsChanged (points) {
       this.childPoints = points
-    },
+    }
   },
   watch: {
     childPoints () {

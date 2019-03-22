@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from 'axios';
+import axios from 'axios'
 
 Vue.use(Vuex)
 
@@ -21,13 +21,13 @@ export default new Vuex.Store({
       state.selectedSource = source
     }
   },
-  getters:{
+  getters: {
 
   },
   actions: {
-    syncListSource ({state,commit}) {
-      return axios.get(`${state.rHost}/list-source`).then((body)=>{
-        commit('setSource',body.data)
+    syncListSource ({ state, commit }) {
+      return axios.get(`${state.rHost}/list-source`).then(body => {
+        commit('setSource', body.data)
       })
     }
   }

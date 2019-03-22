@@ -18,25 +18,18 @@
         :visible="output.gray"
         @toggle-visible="output.gray = !output.gray" />
 
-
       <filter-cell
         title="#5. cany"
         description="윤곽선을 검출시킵니다."
         :visible="output.cany"
         @toggle-visible="output.cany = !output.cany" />
 
-
       <filter-cell
         title="#7. contours"
         description="마지막으로 콘트라를 따옵니다."
         :visible="output.contours"
         @toggle-visible="output.contours = !output.contours" />
-
-      
     </div>
-
-    
-
     <div class="flex h-right">
       <button class="btn btn-primary">Apply</button>
     </div>
@@ -44,11 +37,10 @@
 </template>
 
 <script>
-import Toggle from '@/comp/Toggle'
 import FilterCell from '@/comp/FilterCell'
 
 export default {
-  data() {
+  data () {
     return {
       list: {
         preblur: [],
@@ -63,9 +55,6 @@ export default {
       }
     }
   },
-  mounted () {
-    
-  },
-  components: { Toggle, FilterCell }
+  components: { FilterCell }
 }
 </script>
