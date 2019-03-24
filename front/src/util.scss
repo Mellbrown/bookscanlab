@@ -40,6 +40,16 @@ html, body, #app {
   left: 50%;
   transform: translate(-50%, -50%)
 }
+.cen-to {
+  display: inline-block;
+  position: absolute;
+  transform: translate(-50%, -50%)
+}
+.lcen-to {
+  display: inline-block;
+  position: absolute;
+  transform: translate(0%, -50%)
+}
 
 .baseline { align-items: baseline; }
 .botline { align-items: bottom; }
@@ -59,4 +69,7 @@ html, body, #app {
 
 .y-scroll {
   overflow-y: scroll;
+}
+.over-hidden {
+  overflow: hidden;
 }

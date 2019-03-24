@@ -34,10 +34,22 @@
       @mousedown="mousedown">
       <div class="" :style="imgStyle" @click.ctrl="pick" v-if="src">
         <img :src="src" class="frame" ref="img" draggable="false"/>
-        <!-- <paper3d :height="height" :width="width"/> -->
-        <svg :viewBox="viewBox" xmlns="http://www.w3.org/2000/svg" class="frame">
+        <!-- <paper3d :scale="1/scale"
+          :coord="{ x: 100, y: 100 }" :width="500" :height="800"
+          :depths="[0,1,2,3,4,5,5,5,4,2,0]"/> -->
+        <svg :viewBox="viewBox" xmlns="http://www.w3.org/2000/svg" class="frame" v-if="viewBox">
           <polygon :points="txtPoints" stroke="green" fill="transparent" stroke-width="3"/>
+          <polygon :points="computedPoints.txt" stroke="yellow" fill="transparent" stroke-width="3"/>
         </svg>
+        <div class="frame">
+          <div class="handle" :style="{
+            left: p.x / scale + 'px',
+            top: p.y / scale + 'px',
+            border: i === pointover ? 'solid 4px green' : ''
+            }" v-for="(p, i) in computedPoints.raw" :key="i">
+            <div class="midcen border border-danger" style="height: 5px; width: 5px; border-width: 5pt"></div>
+          </div>
+        </div>
         <div class="frame">
           <div class="handle" :style="{
             left: p.x / scale + 'px',
@@ -55,12 +67,40 @@
 </template>
 
 <script>
+function computedPoints () {
+  var m = this.page3d
+  var chop = m.depth.length - 1
+  var w = m.width / chop
+
+  var points = [[], []]
+  // Top Line
+  for (let i = 0; chop >= i; i++) {
+    points[0].push({ x: m.x + w * i, y: m.y, z: m.depth[i] })
+    points[1].push({ x: m.x + w * i, y: m.y + m.height, z: m.depth[i] })
+  }
+  points[1].reverse()
+  points = points[0].concat(points[1])
+
+  // Pojection Transformation
+  points = points.map(p => {
+    return {
+      x: (p.x - m.camerax) / p.z + m.camerax,
+      y: (p.y - m.cameray) / p.z + m.cameray
+    }
+  })
+
+  return {
+    raw: points,
+    txt: points.map(p => p.x + ',' + p.y).join(' ')
+  }
+}
 
 export default {
   props: {
     src: { type: String, required: true },
     init: { type: Array, default: () => [] },
-    pointover: { type: Number, default: () => -1 }
+    pointover: { type: Number, default: () => -1 },
+    page3d: { type: Object, required: true }
   },
   data () {
     return {
@@ -93,9 +133,11 @@ export default {
       m.ratio = height / width
       m.naturalWidth = width
       m.naturalHeight = height
+      m.$emit('source-size', [height, width])
       m.viewBox = `0 0 ${width} ${height}`
       window.addEventListener('keypress', this.onwindowkeypress)
       m.points = m.init
+      m.width = 600
     })
   },
   beforeDestroy () {
@@ -105,7 +147,7 @@ export default {
     mouse2imgScale (x, y) {
       x -= this.left
       y -= this.top + this.toppadd
-      return { x: x * this.scale, y: y * this.sercale }
+      return { x: x * this.scale, y: y * this.scale }
     },
     handledrag (e, i) {
       if (this.selectedButton === 2) {
@@ -136,8 +178,8 @@ export default {
       window.removeEventListener('mousemove', this.handlemove)
       window.removeEventListener('mouseup', this.handleup)
       this.points[this.handledragging.target] = {
-        x: this.handledragging.x,
-        y: this.handledragging.y
+        x: parseInt(this.handledragging.x),
+        y: parseInt(this.handledragging.y)
       }
       this.handledragging = null
       this.points = this.points.filter(() => true)
@@ -226,6 +268,7 @@ export default {
     }
   },
   computed: {
+    computedPoints,
     scale () {
       return this.naturalWidth / this.width
     },

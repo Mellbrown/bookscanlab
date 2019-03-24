@@ -6,14 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="66f2c0d8-aa77-4ec4-a868-8bb1d286b46c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/comp/FilterCell.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/comp/FilterCell.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/comp/FilterSetter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/comp/FilterSetter.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/comp/ImageViewer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/comp/ImageViewer.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/comp/Paper3D.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/comp/Paper3D.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/pages/ListSource.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/ListSource.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/pages/ModifyPoly.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/ModifyPoly.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/router.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/store.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -133,7 +127,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="5">
-    <option name="x" value="374" />
+    <option name="x" value="373" />
     <option name="y" value="27" />
     <option name="width" value="937" />
     <option name="height" value="1053" />
@@ -280,7 +274,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="374" y="27" width="937" height="1053" extended-state="5" />
+    <frame x="373" y="27" width="937" height="1053" extended-state="5" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2557629" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
