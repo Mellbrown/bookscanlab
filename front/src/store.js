@@ -8,7 +8,7 @@ export default new Vuex.Store({
   state: {
     rHost: 'http://172.17.0.2',
     source: [],
-    selectedSource: './source/document.png'
+    selectedSource: 'a.png'
   },
   mutations: {
     setServer (state, host) {

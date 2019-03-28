@@ -4,8 +4,9 @@
       <image-viewer v-if="selectedSource"
         @points-changed="pointsChanged"
         @source-size="srcheight = $event[0]; srcwidth = $event[1]"
-        :src="selectedSource"
+        :src="src_url"
         :pointover="pointover"
+        :visible3dpaper="visible3dpaper"
         :page3d="page3d"/>
     </div>
     <div class="col-md-3 visible-md flex grow  bg-secondary">
@@ -27,6 +28,10 @@
     </div>
     <div class="col-md-3 visible-md bg-secondary">
       <h3 class="mt-1 bg-primary p-1 px-2 text-light rounded">3D Paper</h3>
+      <div class="bg-dark p-1 px-3 mb-1 rounded text-light flex h-left">
+        <div>3d pager visibility: </div>
+        <div class="grow text-right"><input type="checkbox" class="form-check-inpu" v-model="visible3dpaper"></div>
+      </div>
       <div class="bg-dark rounded text-light p-1 flex" style="height: 200px">
         <div class="flex h-right mb-1">
           <button class="btn btn-primary btn-sm ml-1"
@@ -47,7 +52,7 @@
       </div>
       <con-cursor class="my-1"
         @changed="page3d.height = $event[0]; page3d.width = $event[1]"
-        :name="['page height','pager width']" :init="[2160,1620]" :step="[10,10]"/>
+        :name="['page height','pager width']" :init="[2160,1490]" :step="[10,10]"/>
       <con-cursor class="my-1"
         @changed="page3d.y = $event[0]; page3d.x = $event[1]"
         :name="['page y','pager x']" :init="[140,260]" :step="[10,10]"/>
@@ -71,6 +76,7 @@ export default {
       childPoints: [],
       pointover: -1,
       jsonPoint: '',
+      visible3dpaper: false,
       page3d: {
         camerax: 300,
         cameray: 500,
@@ -79,14 +85,17 @@ export default {
         y: 100,
         height: 1000,
         width: 600,
-        depth: [1, 1, 1, 1, 1, 1, 0.965, 0.955, 0.95, 0.95, 0.96, 1]
-      },
+        depth: [2, 2, 2, 2, 2, 2, 1.965, 1.955, 1.95, 1.95, 1.96, 2]
+      }
     }
   },
   computed: {
     ...mapState([
-      'selectedSource'
-    ])
+      'selectedSource', 'rHost'
+    ]),
+    src_url () {
+      return this.rHost + '/static/source/' + this.selectedSource
+    }
   },
   methods: {
     pointsChanged (points) {

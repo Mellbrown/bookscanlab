@@ -34,14 +34,11 @@
       @mousedown="mousedown">
       <div class="" :style="imgStyle" @click.ctrl="pick" v-if="src">
         <img :src="src" class="frame" ref="img" draggable="false"/>
-        <!-- <paper3d :scale="1/scale"
-          :coord="{ x: 100, y: 100 }" :width="500" :height="800"
-          :depths="[0,1,2,3,4,5,5,5,4,2,0]"/> -->
         <svg :viewBox="viewBox" xmlns="http://www.w3.org/2000/svg" class="frame" v-if="viewBox">
           <polygon :points="txtPoints" stroke="green" fill="transparent" stroke-width="3"/>
-          <polygon :points="computedPoints.txt" stroke="yellow" fill="transparent" stroke-width="3"/>
+          <polygon :points="computedPoints.txt" stroke="yellow" fill="transparent" stroke-width="3" v-if="visible3dpaper"/>
         </svg>
-        <div class="frame">
+        <div class="frame" v-if="visible3dpaper">
           <div class="handle" :style="{
             left: p.x / scale + 'px',
             top: p.y / scale + 'px',
@@ -49,6 +46,14 @@
             }" v-for="(p, i) in computedPoints.raw" :key="i">
             <div class="midcen border border-danger" style="height: 5px; width: 5px; border-width: 5pt"></div>
           </div>
+        </div>
+        <div class="absolute in-block border border-primary" :style="{
+          height: '10px',
+          width: '10px',
+          borderWidth: '10pt',
+          left: page3d.camerax / scale + 'px',
+          top: page3d.cameray / scale + 'px'
+          }" v-if="visible3dpaper">
         </div>
         <div class="frame">
           <div class="handle" :style="{
@@ -100,7 +105,8 @@ export default {
     src: { type: String, required: true },
     init: { type: Array, default: () => [] },
     pointover: { type: Number, default: () => -1 },
-    page3d: { type: Object, required: true }
+    page3d: { type: Object, required: true },
+    visible3dpaper: { type: Boolean, default: () => false }
   },
   data () {
     return {
@@ -119,6 +125,7 @@ export default {
       naturalWidth: 0,
       naturalHeight: 0,
       selectedButton: 0,
+      leftpadd: 0,
       toppadd: 0,
       handledragging: null
     }
@@ -129,6 +136,7 @@ export default {
       let width = m.$refs.img.naturalWidth
       let height = m.$refs.img.naturalHeight
       m.toppadd = m.$refs.con.getBoundingClientRect().top
+      m.leftpadd = m.$refs.con.getBoundingClientRect().left
       m.width = width
       m.ratio = height / width
       m.naturalWidth = width
@@ -145,7 +153,7 @@ export default {
   },
   methods: {
     mouse2imgScale (x, y) {
-      x -= this.left
+      x -= this.left + this.leftpadd
       y -= this.top + this.toppadd
       return { x: x * this.scale, y: y * this.scale }
     },
@@ -196,7 +204,7 @@ export default {
     pick (e) {
       var mousex = e.clientX
       var mousey = e.clientY
-      mousex -= this.left
+      mousex -= this.left + this.leftpadd
       mousey -= this.top + this.toppadd
       mousex *= this.scale
       mousey *= this.scale

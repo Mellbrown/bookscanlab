@@ -18,7 +18,7 @@
       <div class="container">
         <div class="row">
           <div v-for="s in source" :key="s" class="col-sm-3 p-0 py-3">
-            <image-card :src="`${rHost}/static/source/${s}`" class=""/>
+            <image-card :src="s" class=""/>
           </div>
         </div>
       </div>

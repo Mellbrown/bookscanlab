@@ -20,6 +20,10 @@ export default new Router({
     {
       path: '/modify-poly',
       component: ModifyPoly
+    },
+    {
+      path: '/realtime-bander',
+      component: () => import('@/pages/RealtimeBander')
     }
   ]
 })
