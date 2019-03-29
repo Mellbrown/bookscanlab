@@ -48,7 +48,7 @@ export default {
           break
         case 'ArrowRight':
           this.val2 += this.step[1]
-          break;
+          break
       }
     }
   }

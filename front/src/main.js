@@ -9,13 +9,13 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import Viewer from 'v-viewer'
+import windowEvent from '@/comp/small/windowEvent'
 
 import '@/util.scss'
 
 library.add(fas)
 Vue.component('icon', FontAwesomeIcon)
-Vue.use(Viewer)
+Vue.component('window-event', windowEvent)
 
 Vue.config.productionTip = false
 

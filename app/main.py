@@ -3,6 +3,7 @@ import json
 import cv2
 import os
 import numpy as np
+import random
 
 red = (0,0,255)
 green = (0,255,0)
@@ -12,6 +13,17 @@ yellow = (0,255,255)
 white = (255,255,255)
 black = (0,0,0)
 gray = (100,100,100)
+
+def genTempTar (filename):
+    return filename.split('.')[0] + '-' + hex(random.getrandbits(128)) + '.png'
+
+def removeOtherTempTar (path, filename):
+    ls = os.listdir(path)
+    fn = filename.split('.')[0]
+    for l in ls:
+        if not l.find(fn) == -1:
+            print('remove file', path + '/' + l)
+            os.remove(path + '/' + l)
 
 def jsonPath2controus(jsonPath:list):
     return np.array([ [[ point['x'], point['y'] ]] for point in jsonPath])
@@ -36,13 +48,19 @@ def bending(image_path, paths, bound):
 
     controus = jsonPath2controus(paths)
     corners = pathsGetConer(paths)
+
+    left = bound['left']
+    top = bound['top']
+    right = bound['left'] + bound['width']
+    bottom = bound['top'] + bound['height']
+
     M = cv2.getPerspectiveTransform(
         np.float32([[p['x'], p['y']] for p in corners]),
         np.float32([
-            [bound['left'], bound['top']],
-            [bound['left'] + bound['width'], bound['top']],
-            [bound['left'] + bound['width'], bound['top'] + bound['height']],
-            [bound['left'], bound['top'] + bound['height']]
+            [ left, top ],
+            [ right, top],
+            [right, bottom],
+            [left, bottom]
         ])
     )
 
@@ -50,15 +68,43 @@ def bending(image_path, paths, bound):
     cv2.drawContours(canvas, [controus], -1, white, 2)
     canvas = cv2.warpPerspective(canvas, M, (
         bound['width'] + bound['left'] * 2,
-        bound['height'] + bound['height'] * 2
+        bound['height'] + bound['top'] * 2
     ))
-    canvas = canvas[
-             bound['top']: bound['top'] + bound['height'],
-             bound['left']: bound['left'] + bound['width'] + 1
-         ]
+    img = cv2.warpPerspective(img, M, (
+        bound['width'] + bound['left'] * 2,
+        bound['height'] + bound['top'] * 2
+    ))
+
+    # 10간격으로 위선을 다시 잘라 봅니다.
+    verline = []
+    for i in range(left, right + 1, 10):
+        ver = []
+        for y in range(0, bottom + top):
+            if not canvas[y, i] == 0:
+                cv2.circle(canvas, (i, y), 5, white, 2)
+                ver.append([[i, y]])
+                break
+        for y in range(bottom + top - 1, -1, -1):
+            if not canvas[y, i] == 0:
+                cv2.circle(canvas, (i, y), 5, white, 2)
+                ver.append([[i, y]])
+                break
+        verline.append(ver)
+
+    rects = [np.array([verline[i][0], verline[i+1][0], verline[i+1][1], verline[i][1]]) for i in range(0, len(verline)-1)]
+    cv2.drawContours(canvas, rects, -1, white, 2)
+
+    sp = []
+    for rect in rects:
+        M = cv2.getPerspectiveTransform(
+            np.float32([[p[0][0], p[0][1]] for p in rect]),
+            np.float32([[0, 0], [10, 0], [10, bottom - top], [0, bottom - top]])
+        )
+        sp.append(cv2.warpPerspective(img, M, (10, bottom - top)))
 
     return {
-        'skelecton': canvas
+        'flat': np.hstack(sp),
+        'frame': canvas
     }
 
 
@@ -102,19 +148,21 @@ def imagebanding():
     path = json_data['path']
     bound = json_data['bound']
     result = bending(SRC_PATH + '/' + target, path, bound)
+
+    send = []
     for key in result:
-        if (not os.path.isdir(STATIC_PATH + '/' + key)):
-            os.mkdir(STATIC_PATH + '/' + key)
-            print('gen dir: ', STATIC_PATH + '/' + key)
-        cv2.imwrite(STATIC_PATH + '/' + key + '/' + target, result[key])
-        print('gen img: ', STATIC_PATH + '/' + key + '/' + target, result[key])
+        impath = STATIC_PATH + '/' + key
+        if (not os.path.isdir(impath)):
+            os.mkdir(impath)
+            print('gen dir: ', impath)
 
-    r = jsonify([
-        '/' + key + '/' + target
-    ])
-    print('result: ', r)
+        removeOtherTempTar(impath, target)
+        tempimg = genTempTar(target)
+        cv2.imwrite(impath + '/' + tempimg, result[key])
+        print('gen img: ', impath + '/' + tempimg)
+        send.append(key + '/' + tempimg)
 
-    return r
+    return jsonify(send)
 
 
 def convertImageSimple():
@@ -129,6 +177,7 @@ def convertImageSimple():
         os.remove(UPLOAD_PATH + '/' + upload_filename)
 
 convertImageSimple()
+
 # 앱 구동
 if __name__ == "__main__":
     # Only for debugging while developing

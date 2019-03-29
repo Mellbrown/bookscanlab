@@ -21,14 +21,13 @@
       :pointover="pointover"
       :visible3dpaper="false"
       :page3d="{}"/>
-    <div class="flex">
-      <img class="img-fluid" :src="rHost + '/static/' + resultImages[0]" v-if="resultImages[0]"/>
-    </div>
+    <image-viewer-lite :images="resultImages" />
   </div>
 </template>
 
 <script>
 import ImageViewer from '@/comp/ImageViewer'
+import ImageViewerLite from '@/comp/ImageViewerLite'
 import ConCursor from '@/comp/ConCursor'
 import { mapState } from 'vuex'
 import axios from 'axios'
@@ -47,7 +46,6 @@ export default {
       pointover: -1,
       points: null,
       polyWatching: false,
-      txtRequest: '',
       resultImages: []
     }
   },
@@ -59,13 +57,7 @@ export default {
         bound: this.resultBound
       })
         .then(response => {
-          console.log(response)
           this.resultImages = response.data
-          this.txtRequest = 'success: ' + response.data
-        })
-        .catch(error => {
-          console.log(error)
-          this.txtRequest = 'error: ' + error.data
         })
     }
   },
@@ -76,6 +68,9 @@ export default {
     ]),
     src_url () {
       return this.rHost + '/static/source/' + this.selectedSource
+    },
+    resultImagesURLS () {
+      return this.resultImages.map(img => this.rHost + '/static/' + img)
     }
   },
   watch: {
@@ -85,7 +80,7 @@ export default {
       }
     }
   },
-  components: { ImageViewer, ConCursor }
+  components: { ImageViewer, ConCursor, ImageViewerLite }
 }
 </script>
 

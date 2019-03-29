@@ -191,11 +191,9 @@ export default {
       }
       this.handledragging = null
       this.points = this.points.filter(() => true)
-      console.log('end')
     },
     handleclick (e, i) {
       if (this.selectedButton === 3) {
-        console.log(i + 'delete')
         this.points = this.points.filter((p, idx) => {
           if (idx !== i) return true
         })
