@@ -58,7 +58,7 @@ import { mapState } from 'vuex'
 
 export default {
   props: {
-    images: { type: Array, default: () => [] },
+    images: { type: Array, default: () => [] }
   },
   data () {
     return {

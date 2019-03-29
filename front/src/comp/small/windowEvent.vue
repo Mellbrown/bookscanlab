@@ -1,5 +1,5 @@
 <template>
-  
+  <div></div>
 </template>
 
 <script>
@@ -10,7 +10,7 @@ export default {
     }
   },
   beforeDestroy () {
-        for (let key in this.$listeners) {
+    for (let key in this.$listeners) {
       window.removeEventListener(key, this.$listeners[key])
     }
   }
