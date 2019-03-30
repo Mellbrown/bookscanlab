@@ -15,9 +15,8 @@
 </template>
 
 <script>
-import FilterInspector from '@/comp/FilterInspector'
 
 export default {
-  components: { FilterInspector }
+  
 }
 </script>
