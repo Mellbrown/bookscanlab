@@ -1,3 +1,3 @@
-FROM bookscanlab-pre
+FROM bookscanlab-prev
 
 COPY ./app /app

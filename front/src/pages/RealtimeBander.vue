@@ -52,8 +52,8 @@ export default {
   methods: {
     transferPoly () {
       axios.post(`${this.rHost}/image-banding`, {
-        path: this.points,
-        'image-target': this.selectedSource,
+        coord: this.points,
+        image: this.selectedSource,
         bound: this.resultBound
       })
         .then(response => {
