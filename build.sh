@@ -24,11 +24,11 @@ fi
 # 백엔드 빌드
 docker build -t bookscanlab .
 
-# 찌꺼기 이미지 정리
-docker rmi $(docker images -f "dangling=true" -q)
-
 # 벡엔드 실행
 gnome-terminal -e 'docker run --name bookscanlab -p 80:80 bookscanlab'
+
+# 찌꺼기 이미지 정리
+docker rmi $(docker images -f "dangling=true" -q)
 
 # 프론트 실행
 address=`docker inspect -f {{.NetworkSettings.IPAddress}} bookscanlab`
@@ -42,5 +42,5 @@ if [ "$1" == '-b' ] || [ "$1" == 'build-b' ] || [ "$1" == 'full-build-b' ]; then
         sleep 1
     done
 
-    chrome --new-tab "$address"
+    firefox --new-tab "$address"
 fi

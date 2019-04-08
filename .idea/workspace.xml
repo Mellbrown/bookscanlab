@@ -2,26 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66f2c0d8-aa77-4ec4-a868-8bb1d286b46c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/bender.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/cvcolor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/filter.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/mdata.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/prev/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/flask.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/flask.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/mfilter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bender.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/bender.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/filter.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/css/app.f9527d85.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/mdata.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/mdata.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/css/app.824e6239.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/js/app.1eeef044.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/js/app.1eeef044.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/js/chunk-vendors.36f3cabf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/js/chunk-vendors.36f3cabf.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/js/app.d06b4ba8.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/js/app.d06b4ba8.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/js/chunk-2d0e51c3.db05f320.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/js/chunk-2d0e51c3.db05f320.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/js/chunk-vendors.a7463a38.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/js/chunk-vendors.a7463a38.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/build.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/pages/RealtimeBander.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/RealtimeBander.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/vue.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/comp/Filteres.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/comp/Filteres.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/ListSource.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/ListSource.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/pages/MakeFilter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/pages/MakeFilter.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/util.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/util.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prev/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/prev/Dockerfile" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,40 +32,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.sh">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/prev/Dockerfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dockerfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="10" selection-start-column="10" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/mdata.py">
+        <entry file="file://$PROJECT_DIR$/app/mfilter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="35" column="43" lean-forward="true" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+            <state relative-caret-position="491">
+              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
               <folding>
-                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+              <folding>
+                <element signature="e#0#58#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -88,6 +74,7 @@
       <find>bound.height</find>
       <find>==</find>
       <find>$1</find>
+      <find>flask</find>
     </findStrings>
     <replaceStrings>
       <replace>},\n</replace>
@@ -124,22 +111,23 @@
         <option value="$PROJECT_DIR$/app/filter_proc.py" />
         <option value="$PROJECT_DIR$/app/mpath.py" />
         <option value="$PROJECT_DIR$/app/img_bender.py" />
-        <option value="$PROJECT_DIR$/app/bender.py" />
         <option value="$PROJECT_DIR$/prev.Dockerfile" />
-        <option value="$PROJECT_DIR$/app/filter.py" />
-        <option value="$PROJECT_DIR$/app/main.py" />
-        <option value="$PROJECT_DIR$/build.sh" />
-        <option value="$PROJECT_DIR$/prev/Dockerfile" />
         <option value="$PROJECT_DIR$/Dockerfile" />
+        <option value="$PROJECT_DIR$/build.sh" />
+        <option value="$PROJECT_DIR$/app/bender.py" />
+        <option value="$PROJECT_DIR$/app/filter.py" />
         <option value="$PROJECT_DIR$/app/mdata.py" />
+        <option value="$PROJECT_DIR$/prev/Dockerfile" />
+        <option value="$PROJECT_DIR$/app/main.py" />
+        <option value="$PROJECT_DIR$/app/mfilter.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="47" />
+    <option name="x" value="535" />
     <option name="y" value="27" />
-    <option name="width" value="937" />
-    <option name="height" value="1053" />
+    <option name="width" value="927" />
+    <option name="height" value="796" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -165,12 +153,28 @@
             <path>
               <item name="bookscanlab" type="b2602c69:ProjectViewProjectNode" />
               <item name="bookscanlab" type="462c0819:PsiDirectoryNode" />
+              <item name="front" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bookscanlab" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bookscanlab" type="462c0819:PsiDirectoryNode" />
               <item name="prev" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bookscanlab" type="b2602c69:ProjectViewProjectNode" />
               <item name="bookscanlab" type="462c0819:PsiDirectoryNode" />
               <item name="pylab" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bookscanlab" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bookscanlab" type="462c0819:PsiDirectoryNode" />
+              <item name="pylab" type="462c0819:PsiDirectoryNode" />
+              <item name="beta lab" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bookscanlab" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bookscanlab" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -181,7 +185,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../영상처리" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -340,9 +344,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="47" y="27" width="1873" height="1053" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14662273" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14222954" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -359,28 +362,8 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" id="Terminal" order="3" sideWeight="0.5002707" visible="true" weight="0.40252608" />
+      <window_info active="true" anchor="right" id="Terminal" order="3" sideWeight="0.5002707" visible="true" weight="0.39538714" />
     </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14076881" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32929516" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2117904" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3314978" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="9" weight="0.32819384" />
-      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="11" side_tool="true" visible="true" weight="0.23788546" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout-to-restore>
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.bat" />
@@ -454,13 +437,6 @@
     <entry file="file://$PROJECT_DIR$/venv/pip-selfcheck.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/pyvenv.cfg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pylab/input.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -473,13 +449,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/front/babel.config.js">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pylab/beta lab/Process.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -501,16 +470,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/imageBander.py" />
-    <entry file="file://$PROJECT_DIR$/pylab/beta lab/#16. 다스께떼 구레.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/imageBender.py" />
     <entry file="file://$PROJECT_DIR$/pylab/#3. asdf.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -566,16 +525,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/tmpath_img.py" />
     <entry file="file://$PROJECT_DIR$/app/mpath.py" />
-    <entry file="file://$PROJECT_DIR$/app/bender.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/cvcolor.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
@@ -584,44 +533,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/requirements.txt" />
-    <entry file="file://$PROJECT_DIR$/app/filter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-135">
-          <caret line="11" column="10" lean-forward="true" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#58#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" selection-start-line="21" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prev/Dockerfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -629,12 +540,97 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pylab/beta lab/#16. 다스께떼 구레.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pylab/beta lab/#15. 콘트라 분석.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="60" column="32" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/pyvenv.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prev/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/bender.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="836">
+          <caret line="44" column="11" selection-start-line="44" selection-start-column="11" selection-end-line="44" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/mdata.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="35" column="43" lean-forward="true" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+        <state relative-caret-position="779">
+          <caret line="45" column="32" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#0#58#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/mfilter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,13 +1,19 @@
 from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS
+import mdata as md
 
 import bender
-import mdata as md
+import mfilter
+
 
 # 앱 설정
 app = Flask(__name__,
             static_folder=md.appstatic,
             template_folder=md.appstatic)
 app.config['UPLOAD_FOLDER'] = md.src
+cors = CORS(app, resources= {
+    r"*": {"origin": "*"}
+})
 
 # 앱 프론트 전송
 @app.route("/")
@@ -33,6 +39,13 @@ def img_banding():
 
     return jsonify(send)
 
+#필터이미지 생성
+@app.route('/run-filter', methods = ['GET', 'POST'])
+def img_filter():
+    data = md.jsonparse(request.data)
+    result = mfilter.run_filter(data['image'], data['filter-param'])
+    return jsonify([result])
+
 
 for name in md.listing(md.uploads):
     print(name)
@@ -44,13 +57,3 @@ if __name__ == "__main__":
     # Only for debugging while developing
 
     app.run(host='0.0.0.0', debug=True, port= 80)
-
-
-# # 앱 업로드
-# @app.route('/fileUpload', methods = ['GET', 'POST'])
-# def upload_file():
-#     if request.method == 'POST':
-#         f = request.files['file']
-#         file_uri = md.STATIC_PATH(md.src, f.filename)
-#         f.save(file_uri)
-#         return '완료'

@@ -33,6 +33,10 @@ import ImageCard from '@/comp/ImageCard'
 export default {
   mounted () {
     window.addEventListener('keypress', this.onwindowkeypress)
+    var self = this
+    this.$nextTick(() => {
+      self.syncListSource()
+    })
   },
   beforeDestroy () {
     window.removeEventListener('keypress', this.onwindowkeypress)

@@ -2,10 +2,17 @@ import json
 import cv2
 import os
 import random
+import numpy as np
 
 appstatic = '/app/static'
 src = 'source'
 uploads = 'uploads'
+
+def coords2contour(coords):
+    return np.array([ [[ point['x'], point['y'] ]] for point in coords])
+
+def contour2coords(contour):
+    return [ { 'x': int(point[0,0]), 'y': int(point[0,1])} for point in contour]
 
 def STATIC_PATH(dir, name = None):
     return appstatic + '/' + dir + ('/' + name if name != None else '')

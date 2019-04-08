@@ -3,9 +3,6 @@ import cv2
 import cvcolor
 import mdata as md
 
-def coords2contours(coords):
-    return np.array([ [[ point['x'], point['y'] ]] for point in coords])
-
 def coords4corner(coords):
     avg = sum([p['y'] for p in coords]) / len(coords)
     t = sorted([p for p in coords if p['y'] < avg], key=lambda p: p['x'])
@@ -17,7 +14,7 @@ def bend(name, coord, bound):
     img = md.loadimg(md.src, name)
     height, width = img.shape[:2]
 
-    controus = coords2contours(coord)
+    controus = md.coords2contour(coord)
     corners = coords4corner(coord)
 
     left = bound['left']
