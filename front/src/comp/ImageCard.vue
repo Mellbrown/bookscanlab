@@ -1,7 +1,7 @@
 <template>
   <div class="card m-1 point" @click="selectSource(src)">
     <img class="card-img-top" :src="src_url"/>
-    <div class="card-body bg-secondary p-2 text-light">
+    <div class="card-body bg-secondary p-1 text-light">
       <small class="card-text">{{src}}</small>
     </div>
   </div>
@@ -18,7 +18,7 @@ export default {
   },
   computed: {
     src_url () {
-      return this.rHost + '/static/source/' + this.src
+      return this.rHost + '/static/thum/' + this.src
     },
     ...mapState(['rHost'])
   }

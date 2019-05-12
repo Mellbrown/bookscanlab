@@ -6,7 +6,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    rHost: 'http://172.17.0.2',
+    rHost: 'http://localhost:80',
     source: [],
     selectedSource: 'a.png'
   },

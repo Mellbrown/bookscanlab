@@ -4,6 +4,8 @@ import Router from 'vue-router'
 import MakeFilter from '@/pages/MakeFilter'
 import ListSource from '@/pages/ListSource'
 import ModifyPoly from '@/pages/ModifyPoly'
+import RealtimeBander from '@/pages/RealtimeBander'
+import GoRun from '@/pages/GoRun'
 
 Vue.use(Router)
 
@@ -23,7 +25,11 @@ export default new Router({
     },
     {
       path: '/realtime-bander',
-      component: () => import('@/pages/RealtimeBander')
+      component: RealtimeBander
+    },
+    {
+      path: '/go-run',
+      component: GoRun
     }
   ]
 })

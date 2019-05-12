@@ -15,6 +15,9 @@
         <li class="nav-item">
           <router-link class="nav-link" to="/realtime-bander">실시간 펴보기</router-link>
         </li>
+        <li class="nav-item">
+          <router-link class="nav-link" to="/go-run">GO! Run!</router-link>
+        </li>
       </ul>
     </nav>
     <router-view />

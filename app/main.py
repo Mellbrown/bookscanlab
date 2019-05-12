@@ -1,9 +1,11 @@
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 import mdata as md
+import cv2
 
 import bender
 import mfilter
+import gorun
 
 
 # 앱 설정
@@ -46,11 +48,20 @@ def img_filter():
     result = mfilter.run_filter(data['image'], data['filter-param'])
     return jsonify([result])
 
+@app.route('/go-run-task', methods=['GET', 'POST'])
+def go_run_task():
+    data = md.jsonparse(request.data)
+    result = gorun.proccess2(data['image'])
+    return jsonify(result)
+
 
 for name in md.listing(md.uploads):
     print(name)
     img = md.loadimg(md.uploads, name)
     md.saveimg(md.src, name.split('.')[0] + '.png', img)
+    _, width, _ = img.shape
+    ratio = 150 / width
+    md.saveimg('thum', name.split('.')[0] + '.png', cv2.resize(img, None, fx=ratio, fy=ratio))
 
 # 앱 구동
 if __name__ == "__main__":

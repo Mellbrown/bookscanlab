@@ -65,20 +65,25 @@ class 사진:
             rat = self.req_width / width if self.req_width != 0 else 1
 
             out = self.main_proc(image)
-            for o in range(0, len(out)):
-                cv2.imshow("img %d" % o, cv2.resize(out[o], dsize=(0, 0), fx=rat, fy=rat))
-                cv2.imwrite("img %d.png" % o, out[o])
+            if isinstance(out, dict):
+                print(type(out))
+                for o in out.keys():
+                    cv2.imshow(o, cv2.resize(out[o], dsize=(0, 0), fx=rat, fy=rat))
+            else:
+                for o in range(0, len(out)):
+                    cv2.imshow("img %d" % o, cv2.resize(out[o], dsize=(0, 0), fx=rat, fy=rat))
+                    cv2.imwrite("img %d.png" % o, out[o])
 
-            key = cv2.waitKey()
+            key = cv2.waitKeyEx()
             print(hex(key))
             if key == 0x1B:
                 break;
-            elif key == 0x6A: #right
+            elif key == 0x270000: #right
                 self.idx += 1
                 if len(self.imglst) <= self.idx:
                     self.idx = 0
 
-            elif key == 0x6B: #left
+            elif key == 0x250000: #left
                 self.idx -= 1
                 if len(self.imglst) < 0:
                     self.idx = len(self.imglst) - 1
